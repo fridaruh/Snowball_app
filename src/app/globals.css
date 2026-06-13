@@ -1,23 +1,78 @@
 @import "tailwindcss";
 
+/* ─── Design tokens ─────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color — brand */
+  --color-primary: #7C5CFC;
+  --color-ink:     #111111;
+  --color-white:   #FFFFFF;
+
+  /* Neutral ramp */
+  --gray-900: #1A1A1A;
+  --gray-600: #5C5C5C;
+  --gray-300: #D8D8D8;
+  --gray-100: #F5F5F5;
+
+  /* Functional / system */
+  --success: #1FA85A;
+  --warning: #F5A623;
+  --error:   #E03131;
+  --info:    #2D7FF9;
+
+  /* Radius */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-pill: 999px;
+
+  /* Spacing — 8px base */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Typography */
+  --font-display: "Poppins", "Sora", system-ui, sans-serif;
+  --font-body:    "Inter", "Roboto", system-ui, sans-serif;
+
+  /* Legacy aliases (referenced by Tailwind @theme) */
+  --background: var(--color-white);
+  --foreground: var(--color-ink);
 }
 
+/* ─── Tailwind v4 theme registration ───────────────────────────────── */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Expose brand tokens as Tailwind colors */
+  --color-primary:  var(--color-primary);
+  --color-ink:      var(--color-ink);
+  --color-success:  var(--success);
+  --color-warning:  var(--warning);
+  --color-error:    var(--error);
+  --color-info:     var(--info);
+
+  --font-sans:    var(--font-body);
+  --font-display: var(--font-display);
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: #ffffff;
-  color: #171717;
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
 }
 
-* {
-  box-sizing: border-box;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
 }

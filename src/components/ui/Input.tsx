@@ -10,9 +10,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className, label, error, id, ...props }, ref) => {
     const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
     return (
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1.5">
         {label && (
-          <label htmlFor={inputId} className="text-xs font-medium text-gray-600">
+          <label htmlFor={inputId} className="text-sm font-medium text-[var(--color-ink)]">
             {label}
           </label>
         )}
@@ -20,13 +20,21 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            "w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 transition-colors focus:border-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 disabled:bg-gray-50",
-            error && "border-red-300 focus:border-red-400 focus:ring-red-400",
+            "w-full rounded-[var(--radius-md)] border border-[var(--gray-300)] bg-white",
+            "px-4 py-3 text-sm text-[var(--color-ink)] placeholder-[var(--gray-600)]",
+            "min-h-[48px] transition-colors",
+            "focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20",
+            "disabled:bg-[var(--gray-100)] disabled:text-[var(--gray-600)]",
+            error && "border-[var(--error)] focus:border-[var(--error)] focus:ring-[var(--error)]/20",
             className
           )}
           {...props}
         />
-        {error && <span className="text-xs text-red-500">{error}</span>}
+        {error && (
+          <span className="text-xs text-[var(--error)]" role="alert">
+            {error}
+          </span>
+        )}
       </div>
     );
   }

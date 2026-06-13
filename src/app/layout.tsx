@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "FinBot — Dashboard financiero personal",
-  description: "Analiza ingresos, egresos y optimiza el pago de tus tarjetas de crédito",
+  title: "Snowball — Dashboard financiero personal",
+  description: "Analiza ingresos, egresos y optimiza el pago de tus tarjetas y créditos",
 };
 
 export default function RootLayout({
@@ -24,8 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="es"
+      className={`${poppins.variable} ${inter.variable} h-full antialiased`}
+      style={
+        {
+          "--font-display": "var(--font-poppins), 'Sora', system-ui, sans-serif",
+          "--font-body": "var(--font-inter), 'Roboto', system-ui, sans-serif",
+        } as React.CSSProperties
+      }
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

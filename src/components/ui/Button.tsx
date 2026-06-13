@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { type ButtonHTMLAttributes, forwardRef } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "ghost" | "danger";
+  variant?: "primary" | "secondary" | "dark" | "text" | "danger";
   size?: "sm" | "md" | "lg";
 }
 
@@ -13,18 +13,39 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed",
-          {
-            "bg-gray-900 text-white hover:bg-gray-700 focus-visible:ring-gray-900": variant === "primary",
-            "bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 focus-visible:ring-gray-300": variant === "secondary",
-            "text-gray-600 hover:bg-gray-100 focus-visible:ring-gray-300": variant === "ghost",
-            "bg-red-50 text-red-600 border border-red-200 hover:bg-red-100 focus-visible:ring-red-300": variant === "danger",
-          },
-          {
-            "px-3 py-1.5 text-sm": size === "sm",
-            "px-4 py-2 text-sm": size === "md",
-            "px-5 py-2.5 text-base": size === "lg",
-          },
+          // base
+          "inline-flex items-center justify-center gap-2 font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+          "disabled:cursor-not-allowed disabled:bg-[var(--gray-300)] disabled:text-[var(--gray-600)]",
+          // variant
+          variant === "primary" && [
+            "rounded-[var(--radius-pill)]",
+            "bg-[var(--color-primary)] text-[var(--color-ink)]",
+            "hover:brightness-90 focus-visible:ring-[var(--color-primary)]",
+          ],
+          variant === "secondary" && [
+            "rounded-[var(--radius-pill)]",
+            "bg-transparent border border-[var(--color-ink)] text-[var(--color-ink)]",
+            "hover:bg-[var(--gray-100)] focus-visible:ring-[var(--gray-300)]",
+          ],
+          variant === "dark" && [
+            "rounded-[var(--radius-pill)]",
+            "bg-[var(--color-ink)] text-[var(--color-white)]",
+            "hover:brightness-110 focus-visible:ring-[var(--color-ink)]",
+          ],
+          variant === "text" && [
+            "rounded-[var(--radius-md)]",
+            "bg-transparent text-[var(--color-ink)]",
+            "hover:bg-[var(--gray-100)] focus-visible:ring-[var(--gray-300)]",
+          ],
+          variant === "danger" && [
+            "rounded-[var(--radius-md)]",
+            "bg-red-50 text-[var(--error)] border border-red-200",
+            "hover:bg-red-100 focus-visible:ring-red-300",
+          ],
+          // size — primary/secondary/dark always hit 48px min-height per design system
+          size === "sm" && "px-4 py-2 text-sm min-h-[44px]",
+          size === "md" && "px-5 py-3 text-sm min-h-[48px]",
+          size === "lg" && "px-6 py-3.5 text-base min-h-[48px]",
           className
         )}
         {...props}

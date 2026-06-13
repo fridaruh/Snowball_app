@@ -4,20 +4,31 @@ import type { HTMLAttributes } from "react";
 export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("bg-white rounded-xl border border-gray-100 shadow-sm", className)}
+      className={cn(
+        "bg-white rounded-[var(--radius-md)] border border-[var(--gray-300)] shadow-sm",
+        className
+      )}
       {...props}
     />
   );
 }
 
 export function CardHeader({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("px-5 pt-5 pb-3", className)} {...props} />;
+  return <div className={cn("px-6 pt-6 pb-3", className)} {...props} />;
 }
 
 export function CardTitle({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) {
-  return <h3 className={cn("text-sm font-semibold text-gray-500 uppercase tracking-wide", className)} {...props} />;
+  return (
+    <h3
+      className={cn(
+        "text-sm font-semibold text-[var(--gray-600)] uppercase tracking-wide",
+        className
+      )}
+      {...props}
+    />
+  );
 }
 
 export function CardContent({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("px-5 pb-5", className)} {...props} />;
+  return <div className={cn("px-6 pb-6", className)} {...props} />;
 }

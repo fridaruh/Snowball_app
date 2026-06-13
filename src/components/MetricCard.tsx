@@ -12,10 +12,10 @@ interface MetricCardProps {
 }
 
 const variantStyles = {
-  default: { icon: "text-gray-400 bg-gray-50", amount: "text-gray-900" },
-  income: { icon: "text-green-600 bg-green-50", amount: "text-green-700" },
-  expense: { icon: "text-red-500 bg-red-50", amount: "text-red-600" },
-  balance: { icon: "text-blue-600 bg-blue-50", amount: "text-blue-700" },
+  default:  { icon: "text-[var(--gray-600)] bg-[var(--gray-100)]", amount: "text-[var(--gray-900)]" },
+  income:   { icon: "text-[var(--success)] bg-[#E8F8EF]",          amount: "text-[var(--success)]" },
+  expense:  { icon: "text-[var(--error)] bg-[#FCE8E8]",            amount: "text-[var(--error)]" },
+  balance:  { icon: "text-[var(--info)] bg-[#E6EFFD]",             amount: "text-[var(--info)]" },
 };
 
 export function MetricCard({
@@ -30,22 +30,29 @@ export function MetricCard({
 
   return (
     <Card>
-      <CardContent className="pt-5">
+      <CardContent className="pt-6">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">{title}</p>
-            <p className={cn("mt-1 text-xl sm:text-2xl font-bold tabular-nums", styles.amount)}>
+            <p className="text-xs font-semibold uppercase tracking-wide text-[var(--gray-600)]">
+              {title}
+            </p>
+            <p className={cn("mt-2 text-xl sm:text-2xl font-bold tabular-nums font-[var(--font-display)]", styles.amount)}>
               {formatCurrency(amount, currency)}
             </p>
             {trend && (
-              <p className={cn("mt-1 text-xs", trend.value >= 0 ? "text-green-600" : "text-red-500")}>
+              <p
+                className={cn(
+                  "mt-1 text-xs font-medium",
+                  trend.value >= 0 ? "text-[var(--success)]" : "text-[var(--error)]"
+                )}
+              >
                 {trend.value >= 0 ? "+" : ""}
                 {trend.value.toFixed(1)}% {trend.label}
               </p>
             )}
           </div>
-          <div className={cn("rounded-xl p-2.5", styles.icon)}>
-            <Icon size={18} />
+          <div className={cn("rounded-[var(--radius-md)] p-3", styles.icon)}>
+            <Icon size={20} />
           </div>
         </div>
       </CardContent>
