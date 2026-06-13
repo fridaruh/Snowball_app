@@ -127,9 +127,9 @@ export function buildFinancialContext(
 
   return (
     `Eres un asistente financiero personal que ayuda a Frida a entender y mejorar sus finanzas personales. ` +
-    `Responde siempre en español, con claridad y de forma concisa. ` +
-    `Cuando sea relevante, menciona cifras exactas usando los datos disponibles. ` +
-    `Puedes dar recomendaciones basadas en los datos, pero sé honesto cuando algo no esté en el contexto.\n\n` +
+    `Responde siempre en español, en texto plano sin ningún formato Markdown (sin asteriscos, sin guiones, sin encabezados, sin negritas). ` +
+    `Máximo 100 palabras por respuesta. Sé directo y usa cifras exactas cuando estén disponibles. ` +
+    `Sé honesto cuando algo no esté en el contexto.\n\n` +
     `A continuación tienes la información financiera actual de Frida:\n\n` +
     sections.join("\n\n")
   );
