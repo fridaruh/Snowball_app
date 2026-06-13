@@ -196,19 +196,19 @@ export function CreditCardManager({ cards, onAdd, onUpdate, onDelete }: Props) {
       {/* Add/Edit Modal */}
       <Modal open={open} onClose={() => setOpen(false)} title={editing ? "Editar tarjeta" : "Nueva tarjeta"}>
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input label="Nombre de la tarjeta" placeholder="Ej. Visa Oro" {...field("nombre")} />
             <Input label="Banco" placeholder="Ej. BBVA" {...field("banco")} />
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input label="Línea de crédito ($)" type="number" placeholder="50000" {...field("lineaCredito")} />
             <Input label="Saldo actual ($)" type="number" placeholder="12000" {...field("saldoActual")} />
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input label="Tasa anual (%)" type="number" placeholder="36.5" {...field("tasaAnual")} />
             <Input label="Pago mínimo ($)" type="number" placeholder="500" {...field("pagoMinimo")} />
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input label="Día de corte (1-31)" type="number" placeholder="5" {...field("fechaCorte")} />
             <Input label="Día de pago (1-31)" type="number" placeholder="25" {...field("fechaPago")} />
           </div>

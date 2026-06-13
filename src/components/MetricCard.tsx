@@ -34,7 +34,7 @@ export function MetricCard({
         <div className="flex items-start justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">{title}</p>
-            <p className={cn("mt-1 text-2xl font-bold tabular-nums", styles.amount)}>
+            <p className={cn("mt-1 text-xl sm:text-2xl font-bold tabular-nums", styles.amount)}>
               {formatCurrency(amount, currency)}
             </p>
             {trend && (

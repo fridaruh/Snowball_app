@@ -90,7 +90,7 @@ export function FinChat({ transactions, cards, credits }: Props) {
   const hasData = transactions.length > 0 || cards.length > 0 || credits.length > 0;
 
   return (
-    <div className="flex flex-col" style={{ height: "calc(100vh - 220px)", minHeight: "480px" }}>
+    <div className="flex flex-col" style={{ height: "calc(100dvh - 200px)", minHeight: "400px" }}>
       {/* Área de mensajes */}
       <div className="flex-1 overflow-y-auto rounded-xl border border-gray-100 bg-gray-50 p-4 space-y-4">
         {messages.length === 0 && (

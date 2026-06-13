@@ -245,15 +245,15 @@ export function PersonalCreditManager({ credits, onAdd, onUpdate, onDelete }: Pr
 
       <Modal open={open} onClose={() => setOpen(false)} title={editing ? "Editar crédito" : "Nuevo crédito personal"}>
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input label="Nombre del crédito" placeholder="Ej. Préstamo personal" {...field("nombre")} />
             <Input label="Institución" placeholder="Ej. HSBC" {...field("institucion")} />
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input label="No. de pagos totales" type="number" placeholder="36" {...field("pagosTotales")} />
             <Input label="No. de pagos pendientes" type="number" placeholder="24" {...field("pagosPendientes")} />
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input label="Tasa anual (%)" type="number" placeholder="18.5" {...field("tasa")} />
             <Input label="Pago mensual ($)" type="number" placeholder="3500" {...field("pagoMensual")} />
           </div>

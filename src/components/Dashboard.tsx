@@ -70,7 +70,7 @@ export function Dashboard() {
               <p className="text-xs text-gray-400">Dashboard financiero personal</p>
             </div>
           </div>
-          <div className="flex items-center gap-2 text-xs text-gray-400">
+          <div className="hidden sm:flex items-center gap-2 text-xs text-gray-400">
             <span>{store.transactions.length} transacciones</span>
             <span>·</span>
             <span>{store.cards.length} tarjetas</span>
@@ -80,7 +80,7 @@ export function Dashboard() {
         </div>
       </header>
 
-      <div className="mx-auto max-w-6xl px-5 py-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-5 py-4 sm:py-6">
         {/* Nav tabs */}
         <nav className="mb-6 flex gap-1 overflow-x-auto rounded-xl bg-gray-50 p-1">
           {TABS.map((tab) => {
@@ -89,15 +89,16 @@ export function Dashboard() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
+                title={tab.label}
                 className={cn(
-                  "flex shrink-0 items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium transition-all",
+                  "flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-2 sm:px-3 text-xs font-medium transition-all",
                   activeTab === tab.id
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-500 hover:text-gray-700"
                 )}
               >
                 <Icon size={13} />
-                {tab.label}
+                <span className="hidden sm:inline">{tab.label}</span>
               </button>
             );
           })}
@@ -106,7 +107,7 @@ export function Dashboard() {
         {/* Overview */}
         {activeTab === "overview" && (
           <div className="space-y-6">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-5">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
               <MetricCard title="Ingresos totales" amount={totalIngresos} icon={TrendingUp} variant="income" />
               <MetricCard title="Egresos totales" amount={totalEgresos} icon={TrendingDown} variant="expense" />
               <MetricCard title="Balance neto" amount={balance} icon={Wallet} variant="balance" />

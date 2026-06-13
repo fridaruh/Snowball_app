@@ -72,7 +72,7 @@ export function PaymentPriority({ cards, credits }: Props) {
       {/* Income input */}
       <Card>
         <CardContent className="pt-5">
-          <div className="flex items-end gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-4">
             <div className="flex-1">
               <Input
                 label="¿Cuánto dinero tienes disponible para pagar deudas este mes?"
@@ -141,8 +141,8 @@ export function PaymentPriority({ cards, credits }: Props) {
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-start justify-between gap-2">
-                    <div>
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-2">
+                    <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
                         <div className="h-2 w-2 rounded-full shrink-0" style={{ backgroundColor: p.color }} />
                         <p className="font-semibold text-gray-900">{p.nombre}</p>
@@ -163,7 +163,7 @@ export function PaymentPriority({ cards, credits }: Props) {
                       </div>
                       <p className="mt-1 text-xs text-gray-500 leading-relaxed">{p.razon}</p>
                     </div>
-                    <div className="shrink-0 text-right">
+                    <div className="sm:shrink-0 sm:text-right">
                       <p className="text-lg font-bold tabular-nums text-gray-900">
                         {formatCurrency(p.pagoRecomendado)}
                       </p>

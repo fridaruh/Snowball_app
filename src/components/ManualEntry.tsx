@@ -189,7 +189,7 @@ export function ManualEntry({ transactions, onAdd, onDelete }: Props) {
             ))}
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input
               label="Fecha"
               type="date"
@@ -216,7 +216,7 @@ export function ManualEntry({ transactions, onAdd, onDelete }: Props) {
             onChange={(e) => setForm((f) => ({ ...f, descripcion: e.target.value }))}
           />
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input
               label="Monto ($)"
               type="number"
